@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-serif: "Literata", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-paper: #f3efe6;
+  --color-ink: #1e1a16;
+  --color-muted: #6f675e;
+  --color-line: #e2d9cc;
+  --color-card: #fffdf9;
+  --color-accent: #0e6b62;
+  --color-accent-ink: #f4fffc;
+  --color-accent-soft: #d7efe9;
+  --color-danger: #9a3b2f;
+  --color-wash: #efe8dc;
+  --color-locked: #e7e4de;
+}
+
+@layer base {
+  html {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+@keyframes tape-in {
+  from {
+    background-color: var(--color-accent-soft);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+.tape-in {
+  animation: tape-in 1.4s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tape-in {
+    animation: none;
+    background-color: var(--color-accent-soft);
+  }
+}
